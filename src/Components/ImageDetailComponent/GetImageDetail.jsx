@@ -5,10 +5,12 @@ import Loading from "../Loading"
 
 const GetImageDetail = () => {
 
+    // useParams is used to get the id from link
     const { id } = useParams()
     const [fetchedData, setFetchedData] = useState({})
     const [loading, setLoading] = useState(false)
 
+    // Data Fetch from id using axios 
     const ImageData = async () => {
         setLoading(true)
         const data = await axios.get(`https://api.slingacademy.com/v1/sample-data/photos/${id}`)
@@ -21,10 +23,10 @@ const GetImageDetail = () => {
         setLoading(false)
     }
 
+    // destructuring the fetchedData datas
     const { title, description, image } = fetchedData
 
-
-
+    // useEffect is used to load the data
     useEffect(() => { ImageData() }, [])
 
     return (

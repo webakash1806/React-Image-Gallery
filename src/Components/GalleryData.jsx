@@ -8,6 +8,7 @@ const GalleryData = () => {
     const [dataFetched, setDataFetched] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
+    // Image data is fetched with axios
     const imageData = async () => {
         setIsLoading(true)
         const response = await axios.get("https://api.slingacademy.com/v1/sample-data/photos?offset=0&limit=20")
@@ -22,8 +23,9 @@ const GalleryData = () => {
         setIsLoading(false)
     }
 
-    console.log(dataFetched)
+    // console.log(dataFetched)
 
+    // useEffect is used 
     useEffect(() => { imageData() }, [])
 
     return (
